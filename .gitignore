@@ -1,0 +1,4 @@
+/venv
+/local
+__pycache__/
+/questionnare_api/db.sqlite3
