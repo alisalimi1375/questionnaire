@@ -89,8 +89,16 @@ The API provides the following endpoints:
 
 ## Installation and Setup
 
-1. Clone the repository:
-
+1. To clone the repository:
    ```bash
-   git clone <repository-url>
-   cd questionnaire-api
+   git clone https://github.com/alisalimi1375/questionnaire.git
+   cd questionnaire
+2. To run using docker along with nginx webserver and empty sqlite database:
+   ```bash
+   docker-compose up
+3. To run locally:
+   ```bash
+   pip install -r requirements.txt
+   cd questionnaire_api
+   python manage.py migrate
+   python manage.py runserver

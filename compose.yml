@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  questionnaire: 
+    build: .
+    restart: always
+
+  nginx:
+    image: nginx:1.13
+    ports:
+      - 80:8000
+    volumes:
+      - "./conf:/etc/nginx/conf.d"
+      - ./static:/static
+    depends_on: 
+      - questionnaire
+    restart: always
