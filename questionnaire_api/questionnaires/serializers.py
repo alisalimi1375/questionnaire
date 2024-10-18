@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from . import models
-from rest_framework.exceptions import ValidationError
 
 
 class QuestionnaireSerializer(serializers.ModelSerializer):

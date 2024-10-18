@@ -10,7 +10,7 @@ class QuestionnaireAPITestCase(APITestCase):
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(type(response.json()), list)
-    
+
     def test_get_a_questionnaire(self):
         questionnaire = Questionnaire.objects.create(
             title="test title",
@@ -34,7 +34,7 @@ class QuestionnaireAPITestCase(APITestCase):
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertIsNotNone(Questionnaire.objects.filter(id=response.json()['id']).first())
-    
+
     def test_update_a_questionnaire(self):
         questionnaire = Questionnaire.objects.create(
             title="test title",
@@ -60,7 +60,7 @@ class QuestionnaireAPITestCase(APITestCase):
         }
         response = self.client.put(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-    
+
     def test_delete_a_exsitent_questionnaire(self):
         questionnaire = Questionnaire.objects.create(
             title="test title",
@@ -72,7 +72,7 @@ class QuestionnaireAPITestCase(APITestCase):
         response = self.client.delete(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Questionnaire.objects.all().count(), 0)
-    
+
     def test_delete_a_non_exsitent_questionnaire(self):
         url = reverse('questionnaires-detail', kwargs={'pk': 1})
         response = self.client.delete(url, format='json')
